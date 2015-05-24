@@ -10,7 +10,8 @@
 ##    message indicating so) or calculate it and return it.
 
 ## Function that returns a list of functions that are used to
-## manage matrix inverses in the global environment. Functions
+## manage matrix inverses in the global environment. Given an
+## an input matrix x, return a list of the following functions
 ## are as follows:
 ##   * get() - Gets the matrix
 ##   * set() - Sets the matrix
@@ -36,13 +37,10 @@ makeCacheMatrix <- function(x = matrix()) {
          getinverse= getinverse)
 }
 
-## Function that returns a list of functions that are used to
-## manage matrix inverses in the global environment. Functions
-## are as follows:
-##   * get() - Gets the matrix
-##   * set() - Sets the matrix
-##   * setinverse() - Sets the inverse of the matrix
-##   * getinverse() - Gets the inverse of the matrix
+## Takes in the results from the call to makeCacheMatrix and 
+## will either return the cached calculation of the matrix 
+## inverse (and print a message indicating so) or calculate 
+## it and return it (while also caching it).
 cacheSolve <- function(x, ...) {
     ## Return a matrix that is the inverse (i) of x
     i <- x$getinverse()
